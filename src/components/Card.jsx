@@ -8,14 +8,14 @@ import Line from "@/utils/Line";
 const Card = () => {
   // State for individual pages
   const [pages, setPages] = useState([
-    { name: "page1", svg: "normal", isSelected: false },
-    { name: "page2", svg: "normal", isSelected: false },
-    { name: "page3", svg: "normal", isSelected: false },
-    { name: "page4", svg: "normal", isSelected: false },
-    { name: "page5", svg: "normal", isSelected: false },
-    { name: "page6", svg: "normal", isSelected: false },
-    { name: "page7", svg: "normal", isSelected: false },
-    { name: "page8", svg: "normal", isSelected: false },
+    { name: "Page 1", svg: "normal", isSelected: false },
+    { name: "Page 2", svg: "normal", isSelected: false },
+    { name: "Page 3", svg: "normal", isSelected: false },
+    { name: "Page 4", svg: "normal", isSelected: false },
+    { name: "Page 5", svg: "normal", isSelected: false },
+    { name: "Page 6", svg: "normal", isSelected: false },
+    { name: "Page 7", svg: "normal", isSelected: false },
+    { name: "Page 8", svg: "normal", isSelected: false },
   ]);
 
   // State for all page button
@@ -119,7 +119,7 @@ const Card = () => {
           onClick={selectAll}
           className={styles.allPages}
         >
-          All-Pages <Box boxToShow={allPageBtn} sharedID="allPages" />
+          All Pages <Box boxToShow={allPageBtn} sharedID="allPages" />
         </div>
         <Line />
         {/* Pages List */}
