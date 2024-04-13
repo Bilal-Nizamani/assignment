@@ -6,14 +6,13 @@ import Button from "@/utils/Button";
 import Line from "@/utils/Line";
 const pages = [
   { name: "page1" },
-  "page2",
-  "page3",
-  "page4",
-  "page5",
-  "page2",
-  "page3",
-  "page4",
-  "page5",
+  { name: "page1" },
+  { name: "page1" },
+  { name: "page1" },
+  { name: "page1" },
+  { name: "page1" },
+  { name: "page1" },
+  { name: "page1" },
 ];
 const Card = () => {
   const [first, setfirst] = useState("");
@@ -47,7 +46,7 @@ const Card = () => {
                 id={index}
                 key={index}
               >
-                {item}
+                {item.name}
                 <Box boxToShow={""} isClicked={""} />
               </div>
             );
