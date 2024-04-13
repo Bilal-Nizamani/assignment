@@ -4,7 +4,9 @@ import styles from "./Card.module.css";
 import Box from "@/utils/Box";
 import Button from "@/utils/Button";
 import Line from "@/utils/Line";
+
 const Card = () => {
+  // State for individual pages
   const [pages, setPages] = useState([
     { name: "page1", svg: "normal", isSelected: false },
     { name: "page2", svg: "normal", isSelected: false },
@@ -15,16 +17,20 @@ const Card = () => {
     { name: "page7", svg: "normal", isSelected: false },
     { name: "page8", svg: "normal", isSelected: false },
   ]);
+
+  // State for all page button
   const [allPageBtn, setAllPageBtn] = useState("normal");
   const [allSelected, setAllSelected] = useState(false);
 
+  // Function to handle individual item selection
   const handleSelectItem = (event) => {
-    const id = event.currentTarget.getAttribute("shared-id"); // Get the shared id attribute
+    const id = event.currentTarget.getAttribute("shared-id");
     setPages((old) => {
       const copy = [...old];
       copy[id].isSelected = !copy[id].isSelected;
       copy[id].svg = copy[id].isSelected ? "hoverSelected" : "hover";
 
+      // Check if all pages are selected
       for (let i = 0; i < copy.length; i++) {
         if (!copy[i].isSelected) {
           setAllSelected(false);
@@ -38,19 +44,7 @@ const Card = () => {
     });
   };
 
-  const handleMouseOver = (event) => {
-    const id = event.currentTarget.getAttribute("shared-id"); // Get the shared id attribute
-    if (id === "allPages") {
-      setAllPageBtn(allPageBtn === "selected" ? "hoverSelected" : "hover");
-      return;
-    }
-    setPages((old) => {
-      const copy = [...old];
-      copy[id].svg = copy[id].isSelected ? "hoverSelected" : "hover";
-
-      return copy;
-    });
-  };
+  // Function to handle select all pages
   const selectAll = () => {
     setAllSelected((old) => {
       setAllPageBtn(!old ? "hoverSelected" : "hover");
@@ -71,9 +65,10 @@ const Card = () => {
       return copy;
     });
   };
-  const handleMouseDown = (event) => {
-    const id = event.currentTarget.getAttribute("shared-id"); // Get the shared id attribute
 
+  // Function to handle mouse down event
+  const handleMouseDown = (event) => {
+    const id = event.currentTarget.getAttribute("shared-id");
     if (id === "allPages") {
       setAllPageBtn("active");
       return;
@@ -84,9 +79,24 @@ const Card = () => {
       return copy;
     });
   };
-  const handleMouseOut = (event) => {
-    const id = event.currentTarget.getAttribute("shared-id"); // Get the shared id attribute
 
+  // Function to handle mouse over event
+  const handleMouseOver = (event) => {
+    const id = event.currentTarget.getAttribute("shared-id");
+    if (id === "allPages") {
+      setAllPageBtn(allPageBtn === "selected" ? "hoverSelected" : "hover");
+      return;
+    }
+    setPages((old) => {
+      const copy = [...old];
+      copy[id].svg = copy[id].isSelected ? "hoverSelected" : "hover";
+      return copy;
+    });
+  };
+
+  // Function to handle mouse out event
+  const handleMouseOut = (event) => {
+    const id = event.currentTarget.getAttribute("shared-id");
     if (id === "allPages") {
       setAllPageBtn(allSelected ? "selected" : "normal");
       return;
@@ -97,9 +107,11 @@ const Card = () => {
       return copy;
     });
   };
+
   return (
     <div>
       <div className={styles.form}>
+        {/* All Pages Button */}
         <div
           shared-id="allPages"
           onMouseOver={handleMouseOver}
@@ -110,6 +122,7 @@ const Card = () => {
           All-Pages <Box boxToShow={allPageBtn} sharedID="allPages" />
         </div>
         <Line />
+        {/* Pages List */}
         <div className={styles.fram}>
           {pages.map((item, index) => {
             return (
@@ -129,6 +142,7 @@ const Card = () => {
           })}
         </div>
         <Line />
+        {/* Button Component */}
         <Button />
       </div>
     </div>
