@@ -30,6 +30,7 @@ Active menu items and lists items. Also cards backgrounds
   gap: 5px;
 
   width: 370px;
+  cursor: pointer;
 
   /* white */
   background: #ffffff;

@@ -2,11 +2,21 @@ import React from "react";
 import Image from "next/image";
 import hover from "../../public/check-box/hover.svg";
 import normal from "../../public/check-box/normal.svg";
+import selected from "../../public/check-box/selected.svg";
+import hoverSelected from "../../public/check-box/hoverSelected.svg";
+import active from "../../public/check-box/active.svg";
 import styles from "./Box.module.css";
-const Box = () => {
+const boxes = { normal, hover, selected, hoverSelected, active };
+const Box = ({ boxToShow, id }) => {
   return (
-    <div className={styles.checkBox}>
-      <Image src={normal} alt="My SVG" width={23} height={23} />
+    <div shared-id={id} className={styles.checkBox}>
+      <Image
+        shared-id={id}
+        src={boxes[boxToShow]}
+        alt="My SVG"
+        width={23}
+        height={23}
+      />
     </div>
   );
 };
