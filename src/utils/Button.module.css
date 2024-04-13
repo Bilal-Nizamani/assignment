@@ -1,0 +1,20 @@
+.buttonContainer {
+  padding: 10px 15px;
+  width: 370px;
+  background: hsl(0, 0%, 100%);
+}
+.button {
+  padding: 10px 20px;
+  width: 100%;
+  background: #ffce22;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.button:hover {
+  background: #ffd84d;
+}
+.button:active {
+  transform: translateY(1px);
+  background: #ffce22;
+}

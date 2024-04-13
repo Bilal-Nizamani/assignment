@@ -1,0 +1,12 @@
+.line {
+  width: 340px;
+  border: 0.7px solid #cdcdcd;
+}
+
+.lineContainer {
+  /* Line dropdown */
+  padding: 10px 15px;
+
+  width: 370px;
+  height: 20px;
+}
