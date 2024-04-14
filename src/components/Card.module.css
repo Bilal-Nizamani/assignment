@@ -45,6 +45,10 @@ Active menu items and lists items. Also cards backgrounds
   background: #ffffff;
   scrollbar-width: none;
 }
+/* Scrollbar */
+.fram::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit */
+}
 
 .item {
   /* Auto layout */
@@ -60,5 +64,3 @@ Active menu items and lists items. Also cards backgrounds
 
   cursor: pointer;
 }
-
-/* Line 52 */

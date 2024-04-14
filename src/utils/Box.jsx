@@ -8,6 +8,20 @@ import active from "../../public/check-box/active.svg";
 import styles from "./Box.module.css";
 const boxes = { normal, hover, selected, hoverSelected, active };
 const Box = ({ boxToShow, id }) => {
+  if (!boxes.hasOwnProperty(boxToShow)) {
+    console.error(`Invalid boxToShow prop: ${boxToShow}`);
+    return (
+      <div shared-id={id} className={styles.checkBox}>
+        <Image
+          shared-id={id}
+          src={boxes.normal}
+          alt="My SVG"
+          width={23}
+          height={23}
+        />
+      </div>
+    );
+  }
   return (
     <div shared-id={id} className={styles.checkBox}>
       <Image
